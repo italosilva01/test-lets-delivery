@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
     --background-white:#f0f2f5;
     --background-black:#202329;
     --blue-light: #6933FF;
-    --text-title: #f0f2f5;
+    --text-title: rgb(158, 158, 158);
   }
   
   * {

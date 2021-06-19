@@ -8,6 +8,8 @@ import {
   createStyles,
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -29,7 +31,15 @@ import { Container, Content, PaperStyled } from "./style";
 
 export const Header = () => {
   const classes = useStyles();
+  const [searchCharacter, setSearchCharacter] = useState<string>("");
 
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchCharacter(event.target.value);
+  };
+
+  const handleSearchCharacter = () => {
+    console.log(searchCharacter);
+  };
   return (
     <Container>
       <Content>
@@ -41,11 +51,13 @@ export const Header = () => {
             className={classes.textField}
             label="Pesquisar"
             placeholder="Pesquisar personagem"
+            value={searchCharacter}
+            onChange={handleChange}
             inputProps={{
               className: classes.input,
             }}
           />
-          <IconButton>
+          <IconButton onClick={handleSearchCharacter}>
             <SearchIcon />
           </IconButton>
         </Box>

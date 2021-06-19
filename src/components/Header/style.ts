@@ -8,6 +8,7 @@ export const Container = styled.section`
   align-items: center;
   color: var(--text-title);
   height: 24rem;
+  margin-bottom: -4rem;
 `;
 
 export const Content = styled.div`
