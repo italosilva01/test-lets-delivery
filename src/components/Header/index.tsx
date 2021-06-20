@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 import {
   IconButton,
   TextField,
@@ -8,8 +10,7 @@ import {
   createStyles,
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
-import { useEffect } from "react";
-import { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -28,18 +29,18 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 import { Container, Content, PaperStyled } from "./style";
+import { api } from "service/api";
 
 export const Header = () => {
   const classes = useStyles();
+  const history = useHistory();
+
   const [searchCharacter, setSearchCharacter] = useState<string>("");
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchCharacter(event.target.value);
   };
 
-  const handleSearchCharacter = () => {
-    console.log(searchCharacter);
-  };
   return (
     <Container>
       <Content>
@@ -47,19 +48,22 @@ export const Header = () => {
           <Typography variant="h1">Wiki: Rick and Morty</Typography>
         </span>
         <Box>
-          <TextField
-            className={classes.textField}
-            label="Pesquisar"
-            placeholder="Pesquisar personagem"
-            value={searchCharacter}
-            onChange={handleChange}
-            inputProps={{
-              className: classes.input,
-            }}
-          />
-          <IconButton onClick={handleSearchCharacter}>
-            <SearchIcon />
-          </IconButton>
+          <form action="/search">
+            <TextField
+              className={classes.textField}
+              label="Pesquisar"
+              name="name"
+              placeholder="Pesquisar personagem"
+              value={searchCharacter}
+              onChange={handleChange}
+              inputProps={{
+                className: classes.input,
+              }}
+            />
+            <IconButton type="submit">
+              <SearchIcon />
+            </IconButton>
+          </form>
         </Box>
       </Content>
     </Container>

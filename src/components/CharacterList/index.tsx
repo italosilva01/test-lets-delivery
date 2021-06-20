@@ -11,8 +11,7 @@ export const CharacterList = () => {
   const [firstTenCharacters, setFirstTenCharacters] = useState<Character[]>([]);
 
   const getFirstTenCharacters = async () => {
-    const response = await api.get("character/1,2,3,4");
-    console.log(response);
+    const response = await api.get("character/1,2,3,4,5,6,");
     setFirstTenCharacters(response.data);
   };
 
