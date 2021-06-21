@@ -14,7 +14,10 @@ export const GlobalStyle = createGlobalStyle`
     
     box-sizing: border-box;
   } 
-
+  a:link,a:visited,a:hover,a:active{
+    text-decoration: none;
+    color: gray;
+  }
    body {
     background: var(--background-white)  no-repeat center top;
     -webkit-font-smoothing: antialiased;

@@ -15,4 +15,14 @@ export const Content = styled.main`
   span {
     text-align: center;
   }
+  ul {
+    padding: 0 20%;
+  }
+`;
+
+export const ContainerProgress = styled.div`
+  margin: 5%;
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
 `;
