@@ -8,9 +8,9 @@ export interface Character {
   species: string;
   type: string;
   gender: string;
-  origin: object;
-  localtion: Localtion;
+  origin?: object;
+  localtion?: Localtion;
   image: string;
-  dimension: string;
-  created: string;
+  dimension?: string;
+  created?: string;
 }

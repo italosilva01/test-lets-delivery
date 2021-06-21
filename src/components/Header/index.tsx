@@ -45,7 +45,9 @@ export const Header = () => {
     <Container>
       <Content>
         <span>
-          <Typography variant="h1">Wiki: Rick and Morty</Typography>
+          <Typography variant="h1" style={{ color: "white" }}>
+            Wiki: Rick and Morty
+          </Typography>
         </span>
         <Box>
           <form action="/search">

@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link, useHistory } from "react-router-dom";
 import {
   List,
   ListItem,
   Typography,
   CircularProgress,
+  Tooltip,
+  IconButton,
 } from "@material-ui/core";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import queryString from "query-string";
 
 import { CharacterListItem } from "components/CharacterListItem";
@@ -14,11 +17,12 @@ import { Character } from "model/character";
 import { api } from "service/api";
 import { Container, Content, ContainerProgress } from "./style";
 
-export const ListSearch = ({ props }: any) => {
+export const ListSearch = () => {
   const { search } = useLocation();
   const { name } = queryString.parse(search);
   const [foundCharacters, setFoundCharacters] = useState<Character[]>([]);
   const [requestMade, setRequestMade] = useState(false);
+  const history = useHistory();
 
   useEffect(() => {
     const getSearchParam = async () => {
@@ -47,7 +51,19 @@ export const ListSearch = ({ props }: any) => {
   return (
     <Container>
       <Content>
-        <Typography variant="h3">Resultado da pesquisa</Typography>
+        <Typography variant="h3">
+          <Tooltip title="Voltar" arrow>
+            <IconButton
+              onClick={() => {
+                history.goBack();
+              }}
+            >
+              <ArrowBackIcon />
+            </IconButton>
+          </Tooltip>
+          {"  "}
+          Resultado da pesquisa
+        </Typography>
         {foundCharacters.length === 0 && !requestMade && (
           <ContainerProgress>
             <CircularProgress size={120} color="inherit" />

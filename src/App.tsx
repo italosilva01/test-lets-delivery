@@ -1,7 +1,8 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import { Home } from "./pages/Home";
+import { Home } from "pages/Home";
 import { ListSearch } from "pages/ListSearch";
+import { OnlyCharacter } from "pages/OnlyCharacter";
 import { GlobalStyle } from "./styles/global";
 
 const App: React.FC = () => {
@@ -10,8 +11,12 @@ const App: React.FC = () => {
       <BrowserRouter>
         <GlobalStyle />
         <Switch>
-          <Route path={`/search`} component={ListSearch} />
-
+          <Route path={`/search`}>
+            <ListSearch />
+          </Route>
+          <Route path={`/character/:id`}>
+            <OnlyCharacter />
+          </Route>
           <Route exact path="/">
             <Home />
           </Route>

@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
     --background-white:#f0f2f5;
     --background-black:#202329;
     --blue-light: #6933FF;
-    --text-title: rgb(158, 158, 158);
+    --text-title: #353839;
   }
   
   * {
@@ -22,7 +22,9 @@ export const GlobalStyle = createGlobalStyle`
     background: var(--background-white)  no-repeat center top;
     -webkit-font-smoothing: antialiased;
   }
-
+ h2,h3,h4,h5,h6{
+    color: var(--text-title)
+  }
 
 html{
     @media (max-width:1080px){
