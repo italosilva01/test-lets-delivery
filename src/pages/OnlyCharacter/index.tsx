@@ -1,9 +1,24 @@
 import { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
-import { Typography, Tooltip, IconButton } from "@material-ui/core";
+import { useHistory, useParams, Link } from "react-router-dom";
+import {
+  Typography,
+  Tooltip,
+  IconButton,
+  Grid,
+  Paper,
+} from "@material-ui/core";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
-import { Container, Content } from "./style";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+import { InfoCard } from "components/InfoCard";
+import {
+  Container,
+  Content,
+  PhotoContainer,
+  Image,
+  ContainerAction,
+} from "./style";
 import { Character } from "model/character";
 import { api } from "service/api";
 
@@ -19,7 +34,7 @@ export const OnlyCharacter = () => {
     status: "",
     species: "",
     type: "",
-    gender: "",
+    gender: "Male",
     image: "",
   };
   const [character, setCharacter] = useState<Character>(initialValue);
@@ -61,6 +76,30 @@ export const OnlyCharacter = () => {
           </Tooltip>
           {character.name}
         </Typography>
+        <Paper elevation={3} style={{ width: "80%", margin: "0 auto" }}>
+          <PhotoContainer container spacing={1}>
+            <Grid item lg={6}>
+              <Image src={character.image} alt={character.name} />
+            </Grid>
+
+            <Grid item lg={4}>
+              <InfoCard
+                status={character.status}
+                species={character.species}
+                gender={character.gender}
+                location={character.location}
+                origin={character.origin}
+              />
+              <ContainerAction>
+                <Tooltip title="Favorite" arrow>
+                  <IconButton>
+                    <FavoriteBorderIcon />
+                  </IconButton>
+                </Tooltip>
+              </ContainerAction>
+            </Grid>
+          </PhotoContainer>
+        </Paper>
       </Content>
     </Container>
   );

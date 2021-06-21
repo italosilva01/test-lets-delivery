@@ -1,4 +1,4 @@
-interface Localtion {
+export interface Location {
   name: string;
 }
 export interface Character {
@@ -8,8 +8,8 @@ export interface Character {
   species: string;
   type: string;
   gender: string;
-  origin?: object;
-  localtion?: Localtion;
+  origin?: Location;
+  location?: Location;
   image: string;
   dimension?: string;
   created?: string;

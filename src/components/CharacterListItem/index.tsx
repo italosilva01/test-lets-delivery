@@ -1,7 +1,7 @@
 import { Typography, Tooltip } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import FavoriteIcon from "@material-ui/icons/Favorite";
+
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import { Container, Info, ContainerAction } from "./style";
 interface CharacterListItemProps {
