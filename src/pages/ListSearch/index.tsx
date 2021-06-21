@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useLocation, Link, useHistory } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { useLocation, useHistory } from 'react-router-dom';
 import {
   List,
   ListItem,
@@ -7,15 +7,15 @@ import {
   CircularProgress,
   Tooltip,
   IconButton,
-} from "@material-ui/core";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import queryString from "query-string";
+} from '@material-ui/core';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import queryString from 'query-string';
 
-import { CharacterListItem } from "components/CharacterListItem";
-import { NotFound } from "components/NotFound";
-import { Character } from "model/character";
-import { api } from "service/api";
-import { Container, Content, ContainerProgress } from "./style";
+import { CharacterListItem } from 'components/CharacterListItem';
+import { NotFound } from 'components/NotFound';
+import { Character } from 'model/character';
+import { api } from 'service/api';
+import { Container, Content, ContainerProgress } from './style';
 
 export const ListSearch = () => {
   const { search } = useLocation();
@@ -38,7 +38,7 @@ export const ListSearch = () => {
         } else if (error.request) {
           console.log(error.request);
         } else {
-          console.log("Error", error.message);
+          console.log('Error', error.message);
         }
         console.log(error);
       }
@@ -61,7 +61,7 @@ export const ListSearch = () => {
               <ArrowBackIcon />
             </IconButton>
           </Tooltip>
-          {"  "}
+          {'  '}
           Resultado da pesquisa
         </Typography>
         {foundCharacters.length === 0 && !requestMade && (

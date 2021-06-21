@@ -1,9 +1,10 @@
-import { Typography, Tooltip } from "@material-ui/core";
-import { Link } from "react-router-dom";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import React from 'react';
+import { Typography, Tooltip } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
-import { Container, Info, ContainerAction } from "./style";
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import { Container, Info, ContainerAction } from './style';
 interface CharacterListItemProps {
   image: string;
   name: string;
@@ -19,7 +20,7 @@ export const CharacterListItem = ({
       <Container>
         <img src={image} alt={name} />
         <Info>
-          <Typography style={{ textAlign: "justify" }}>{name}</Typography>
+          <Typography style={{ textAlign: 'justify' }}>{name}</Typography>
         </Info>
         <ContainerAction>
           <Tooltip title="Ver mais" arrow>

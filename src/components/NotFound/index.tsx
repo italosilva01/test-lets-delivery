@@ -1,6 +1,7 @@
-import { Typography } from "@material-ui/core";
-import NotInterestedIcon from "@material-ui/icons/NotInterested";
-import { Container, Content } from "./style";
+import React from 'react';
+import { Typography } from '@material-ui/core';
+import NotInterestedIcon from '@material-ui/icons/NotInterested';
+import { Container, Content } from './style';
 export const NotFound = () => {
   return (
     <Container>

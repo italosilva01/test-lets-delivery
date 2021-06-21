@@ -1,9 +1,10 @@
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import { Home } from "pages/Home";
-import { ListSearch } from "pages/ListSearch";
-import { OnlyCharacter } from "pages/OnlyCharacter";
-import { GlobalStyle } from "./styles/global";
+import { Home } from 'pages/Home';
+import { ListSearch } from 'pages/ListSearch';
+import { OnlyCharacter } from 'pages/OnlyCharacter';
+import { GlobalStyle } from './styles/global';
 
 const App: React.FC = () => {
   return (

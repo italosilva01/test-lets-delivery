@@ -1,13 +1,7 @@
-import {
-  Card,
-  CardContent,
-  Typography,
-  Button,
-  CardActions,
-  Box,
-} from "@material-ui/core";
-import Brightness1Icon from "@material-ui/icons/Brightness1";
-import { Location } from "model/character";
+import React from 'react';
+import { Typography, Box } from '@material-ui/core';
+import Brightness1Icon from '@material-ui/icons/Brightness1';
+import { Location } from 'model/character';
 
 interface InfoCardProps {
   status: string;
@@ -22,7 +16,6 @@ export const InfoCard = ({
   status,
   species,
   gender,
-  type,
   location,
   origin,
 }: InfoCardProps) => {
@@ -30,9 +23,9 @@ export const InfoCard = ({
     <Box>
       <Typography variant="h4">
         <Brightness1Icon
-          color={status === "Alive" ? "primary" : "secondary"}
+          color={status === 'Alive' ? 'primary' : 'secondary'}
           fontSize="small"
-        />{" "}
+        />{' '}
         {status} - {species}
       </Typography>
       <Typography color="textSecondary">Gender - {gender}</Typography>

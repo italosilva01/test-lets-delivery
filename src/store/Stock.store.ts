@@ -1,8 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { Character } from "model/character";
+import { createSlice } from '@reduxjs/toolkit';
+import { Character } from 'model/character';
 
 const stock = createSlice({
-  name: "stock",
+  name: 'stock',
   initialState: [] as Character[],
 
   reducers: {

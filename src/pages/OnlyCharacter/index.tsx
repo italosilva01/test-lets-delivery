@@ -1,26 +1,26 @@
-import { useEffect, useState } from "react";
-import { useHistory, useParams, Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
 import {
   Typography,
   Tooltip,
   IconButton,
   Grid,
   Paper,
-} from "@material-ui/core";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+} from '@material-ui/core';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
-import { InfoCard } from "components/InfoCard";
+// import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import { InfoCard } from 'components/InfoCard';
 import {
   Container,
   Content,
   PhotoContainer,
   Image,
   ContainerAction,
-} from "./style";
-import { Character } from "model/character";
-import { api } from "service/api";
+} from './style';
+import { Character } from 'model/character';
+import { api } from 'service/api';
 
 interface CharacterParams {
   id: string;
@@ -30,12 +30,12 @@ export const OnlyCharacter = () => {
   const history = useHistory();
   const initialValue: Character = {
     id: 0,
-    name: "",
-    status: "",
-    species: "",
-    type: "",
-    gender: "Male",
-    image: "",
+    name: '',
+    status: '',
+    species: '',
+    type: '',
+    gender: 'Male',
+    image: '',
   };
   const [character, setCharacter] = useState<Character>(initialValue);
   const { id } = useParams<CharacterParams>();
@@ -53,7 +53,7 @@ export const OnlyCharacter = () => {
         } else if (error.request) {
           console.log(error.request);
         } else {
-          console.log("Error", error.message);
+          console.log('Error', error.message);
         }
         console.log(error);
       }
@@ -76,7 +76,7 @@ export const OnlyCharacter = () => {
           </Tooltip>
           {character.name}
         </Typography>
-        <Paper elevation={3} style={{ width: "80%", margin: "0 auto" }}>
+        <Paper elevation={3} style={{ width: '80%', margin: '0 auto' }}>
           <PhotoContainer container spacing={1}>
             <Grid item lg={6}>
               <Image src={character.image} alt={character.name} />

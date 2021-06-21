@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState } from 'react';
 
 import {
   IconButton,
@@ -8,34 +8,31 @@ import {
   Theme,
   makeStyles,
   createStyles,
-} from "@material-ui/core";
-import SearchIcon from "@material-ui/icons/Search";
-import { Link, useHistory } from "react-router-dom";
+} from '@material-ui/core';
+import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     textField: {
       margin: theme.spacing(1),
-      borderColor: "white",
-      width: "90%",
-      "& focus-visible": {
-        borderColor: "white",
+      borderColor: 'white',
+      width: '90%',
+      '& focus-visible': {
+        borderColor: 'white',
       },
     },
     input: {
-      color: "white",
-      borderColor: "white",
+      color: 'white',
+      borderColor: 'white',
     },
   })
 );
-import { Container, Content, PaperStyled } from "./style";
-import { api } from "service/api";
+import { Container, Content } from './style';
 
 export const Header = () => {
   const classes = useStyles();
-  const history = useHistory();
 
-  const [searchCharacter, setSearchCharacter] = useState<string>("");
+  const [searchCharacter, setSearchCharacter] = useState<string>('');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchCharacter(event.target.value);
@@ -45,7 +42,7 @@ export const Header = () => {
     <Container>
       <Content>
         <span>
-          <Typography variant="h1" style={{ color: "white" }}>
+          <Typography variant="h1" style={{ color: 'white' }}>
             Wiki: Rick and Morty
           </Typography>
         </span>
