@@ -6,8 +6,6 @@ import { api } from 'service/api';
 import { Character } from 'model/character';
 import { MediaCard } from '../MediaCard';
 import { Container } from './style';
-import { useSelector } from 'react-redux';
-import { RootState } from 'store';
 
 export const CharacterList = () => {
   const [firstTenCharacters, setFirstTenCharacters] = useState<Character[]>([]);
@@ -20,7 +18,6 @@ export const CharacterList = () => {
   useEffect(() => {
     getFirstTenCharacters();
   }, []);
-  const favorites = useSelector((state: RootState) => state.favorite);
 
   return (
     <>
@@ -28,18 +25,9 @@ export const CharacterList = () => {
         <Grid container spacing={2} style={{ margin: 'auto' }}>
           {firstTenCharacters.map((character: Character) => (
             <Grid key={character.id} item>
-              <MediaCard
-                image={character.image}
-                type={character.type}
-                gender={character.gender}
-                name={character.name}
-                status={character.status}
-                species={character.species}
-                id={character.id}
-              />
+              <MediaCard character={character} />
             </Grid>
           ))}
-          {favorites.length}
         </Grid>
       </Container>
     </>

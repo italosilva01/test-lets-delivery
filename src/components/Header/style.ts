@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Paper } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 
 export const Container = styled.section`
   background: var(--background-black);
@@ -21,14 +21,10 @@ export const Content = styled.div`
   }
 `;
 
-export const PaperStyled = styled(Paper)`
-  background-color: blue;
-  width: 100%;
-  align-items: center;
+export const HomeOptions = styled(Box)`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 `;
-
 // export const TextFieldStyled = styled(TextField)`
 //   border-color: red;
 // `;

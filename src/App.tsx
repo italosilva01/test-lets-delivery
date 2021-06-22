@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Home } from 'pages/Home';
 import { ListSearch } from 'pages/ListSearch';
 import { OnlyCharacter } from 'pages/OnlyCharacter';
+import { Favorites } from 'pages/Favorites';
 import { GlobalStyle } from './styles/global';
 
 const App: React.FC = () => {
@@ -17,6 +18,9 @@ const App: React.FC = () => {
           </Route>
           <Route path={`/character/:id`}>
             <OnlyCharacter />
+          </Route>
+          <Route exact path="/favorites">
+            <Favorites />
           </Route>
           <Route exact path="/">
             <Home />

@@ -62,7 +62,7 @@ export const ListSearch = () => {
             </IconButton>
           </Tooltip>
           {'  '}
-          Resultado da pesquisa
+          Search result
         </Typography>
         {foundCharacters.length === 0 && !requestMade && (
           <ContainerProgress>

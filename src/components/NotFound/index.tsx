@@ -7,9 +7,9 @@ export const NotFound = () => {
     <Container>
       <Content>
         <NotInterestedIcon fontSize="large" />
-        <Typography variant="h4">Nada foi encontrado</Typography>
+        <Typography variant="h4">nothing was found</Typography>
         <Typography variant="h5">
-          Volte para a página anterior e pesquise por outro personagem 😉
+          Go back to the previous page and search for another character 😉
         </Typography>
       </Content>
     </Container>

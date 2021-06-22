@@ -5,11 +5,13 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Brightness1Icon from '@material-ui/icons/Brightness1';
 import { Box } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+
+import { Character } from 'model/character';
+import { FavoriteButton } from 'components/FavoriteButton';
 
 const useStyles = makeStyles({
   root: {
@@ -20,25 +22,10 @@ const useStyles = makeStyles({
   },
 });
 interface MediaCardProps {
-  name: string;
-  status: string;
-  species?: string;
-  type: string;
-  gender: string;
-  origin?: object;
-  localtionName?: string;
-  image: string;
-  dimension?: string;
-  id: number;
+  character: Character;
 }
 
-export const MediaCard = ({
-  name,
-  status,
-  species,
-  image,
-  id,
-}: MediaCardProps) => {
+export const MediaCard = ({ character }: MediaCardProps) => {
   const classes = useStyles();
 
   return (
@@ -46,21 +33,21 @@ export const MediaCard = ({
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={`${image}`}
-          title={`${name}`}
+          image={`${character.image}`}
+          title={`${character.name}`}
         />
         <CardContent>
           <Typography gutterBottom variant="h4" component="h2">
-            {name}
+            {character.name}
           </Typography>
           <Box style={{ display: 'flex' }}>
             <Brightness1Icon
-              color={status == 'Alive' ? 'primary' : 'secondary'}
+              color={character.status == 'Alive' ? 'primary' : 'secondary'}
               fontSize="small"
             />
             <Typography>
               {'  '}
-              {status} - {species}
+              {character.status} - {character.species}
             </Typography>
           </Box>
 
@@ -70,10 +57,8 @@ export const MediaCard = ({
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Link to={`character/${id}`}>View more</Link>
+        <FavoriteButton character={character} />
+        <Link to={`character/${character.id}`}>View more</Link>
       </CardActions>
     </Card>
   );

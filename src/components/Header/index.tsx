@@ -4,12 +4,12 @@ import {
   IconButton,
   TextField,
   Typography,
-  Box,
   Theme,
   makeStyles,
   createStyles,
 } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   })
 );
-import { Container, Content } from './style';
+import { Container, Content, HomeOptions } from './style';
 import { useHistory } from 'react-router-dom';
 
 export const Header = () => {
@@ -56,7 +56,8 @@ export const Header = () => {
             Wiki: Rick and Morty
           </Typography>
         </span>
-        <Box>
+        <HomeOptions>
+          <Link to="/favorites">Favorites</Link>
           <form action="/search" onSubmit={(e) => handleSubmit(e)}>
             <TextField
               className={classes.textField}
@@ -73,7 +74,7 @@ export const Header = () => {
               <SearchIcon />
             </IconButton>
           </form>
-        </Box>
+        </HomeOptions>
       </Content>
     </Container>
   );
