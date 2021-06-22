@@ -92,12 +92,13 @@ export const ListSearch = () => {
               <CharacterListItem character={character} />
             </ListItem>
           ))}
-
-          <Pagination
-            style={{ display: 'flex', justifyContent: 'center' }}
-            count={info.pages}
-            onChange={handlePage}
-          />
+          {foundCharacters.length > 0 && (
+            <Pagination
+              style={{ display: 'flex', justifyContent: 'center' }}
+              count={info.pages}
+              onChange={handlePage}
+            />
+          )}
         </List>
       </Content>
     </Container>
