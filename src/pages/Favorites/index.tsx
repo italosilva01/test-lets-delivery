@@ -8,6 +8,7 @@ import { Container, Content } from './style';
 import { RootState } from 'store';
 import { Character } from 'model/character';
 import { MediaCard } from 'components/MediaCard';
+import { Empty } from 'components/Empty';
 
 export const Favorites = () => {
   const history = useHistory();
@@ -27,8 +28,15 @@ export const Favorites = () => {
             </IconButton>
           </Tooltip>
           {'  '}
-          Favorites
+
+          {favorite.length > 1 ? 'Favorites' : 'Favorite'}
         </Typography>
+        {favorite.length == 0 && (
+          <Empty
+            title="No favorites"
+            textBody=" Go back to the previous page and favorite a character"
+          />
+        )}
         <Grid container spacing={6}>
           {favorite.map((character: Character) => (
             <Grid key={character.id} item xs={4}>

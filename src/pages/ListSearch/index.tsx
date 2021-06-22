@@ -13,7 +13,7 @@ import queryString from 'query-string';
 import Pagination from '@material-ui/lab/Pagination';
 
 import { CharacterListItem } from 'components/CharacterListItem';
-import { NotFound } from 'components/NotFound';
+import { Empty } from 'components/Empty';
 import { Character } from 'model/character';
 import { api } from 'service/api';
 import { Container, Content, ContainerProgress } from './style';
@@ -84,7 +84,13 @@ export const ListSearch = () => {
             <CircularProgress size={120} color="inherit" />
           </ContainerProgress>
         )}
-        {foundCharacters.length == 0 && requestMade && <NotFound />}
+        {foundCharacters.length == 0 && requestMade && (
+          <Empty
+            icon
+            title="nothing was found"
+            textBody=" Go back to the previous page and search for another character"
+          />
+        )}
 
         <List style={{ padding: '0 20%' }}>
           {foundCharacters.map((character: Character) => (
