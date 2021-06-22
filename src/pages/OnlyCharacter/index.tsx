@@ -8,11 +8,12 @@ import {
   Paper,
 } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 
-// import { RootState } from 'store';
-import { insert } from 'store/Favorite.store';
+import { RootState } from 'store';
+import { insert, remove } from 'store/Favorite.store';
 import { InfoCard } from 'components/InfoCard';
 import {
   Container,
@@ -33,9 +34,15 @@ export const OnlyCharacter = () => {
 
   const [character, setCharacter] = useState<Character>({} as Character);
   const { id } = useParams<CharacterParams>();
+  const [isFavorite, setIsFavorite] = useState(false);
 
-  //const favorites = useSelector((state: RootState) => state.favorites);
+  const favorite = useSelector((state: RootState) => state.favorite);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const exist = favorite.filter(({ id }) => id === character.id);
+    exist.length > 0 ? setIsFavorite(true) : setIsFavorite(false);
+  }, [favorite, character]);
 
   useEffect(() => {
     const getOnlyCharacter = async () => {
@@ -71,7 +78,7 @@ export const OnlyCharacter = () => {
               <ArrowBackIcon />
             </IconButton>
           </Tooltip>
-          {character.name}
+          {character.name} {favorite.length}
         </Typography>
         <Paper elevation={3} style={{ width: '80%', margin: '0 auto' }}>
           <PhotoContainer container spacing={1}>
@@ -88,11 +95,27 @@ export const OnlyCharacter = () => {
                 origin={character.origin}
               />
               <ContainerAction>
-                <Tooltip title="Favorite" arrow>
-                  <IconButton onClick={() => dispatch(insert(character))}>
-                    <FavoriteBorderIcon />
-                  </IconButton>
-                </Tooltip>
+                {!isFavorite ? (
+                  <Tooltip title="Favorite" arrow>
+                    <IconButton
+                      onClick={() => {
+                        dispatch(insert(character));
+                      }}
+                    >
+                      <FavoriteBorderIcon />
+                    </IconButton>
+                  </Tooltip>
+                ) : (
+                  <Tooltip title="Not favorite" arrow>
+                    <IconButton
+                      onClick={() => {
+                        dispatch(remove(character));
+                      }}
+                    >
+                      <FavoriteIcon />
+                    </IconButton>
+                  </Tooltip>
+                )}
               </ContainerAction>
             </Grid>
           </PhotoContainer>

@@ -10,11 +10,10 @@ const favorite = createSlice({
       const item = state.filter(({ id }) => id === payload.id);
       if (item.length == 0) state.push(payload);
     },
-    remove(state, { payload }: PayloadAction<Character>) {
-      state = state.filter(({ id }) => id != payload.id);
-    },
+    remove: (state, { payload }: PayloadAction<Character>) =>
+      state.filter((item) => item.id != payload.id),
   },
 });
 
-export const { insert } = favorite.actions;
+export const { insert, remove } = favorite.actions;
 export default favorite.reducer;
