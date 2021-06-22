@@ -8,9 +8,11 @@ import {
   Paper,
 } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-
-// import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import { useDispatch } from 'react-redux';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+
+// import { RootState } from 'store';
+import { insert } from 'store/Favorite.store';
 import { InfoCard } from 'components/InfoCard';
 import {
   Container,
@@ -28,17 +30,12 @@ interface CharacterParams {
 
 export const OnlyCharacter = () => {
   const history = useHistory();
-  const initialValue: Character = {
-    id: 0,
-    name: '',
-    status: '',
-    species: '',
-    type: '',
-    gender: 'Male',
-    image: '',
-  };
-  const [character, setCharacter] = useState<Character>(initialValue);
+
+  const [character, setCharacter] = useState<Character>({} as Character);
   const { id } = useParams<CharacterParams>();
+
+  //const favorites = useSelector((state: RootState) => state.favorites);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const getOnlyCharacter = async () => {
@@ -92,7 +89,7 @@ export const OnlyCharacter = () => {
               />
               <ContainerAction>
                 <Tooltip title="Favorite" arrow>
-                  <IconButton>
+                  <IconButton onClick={() => dispatch(insert(character))}>
                     <FavoriteBorderIcon />
                   </IconButton>
                 </Tooltip>

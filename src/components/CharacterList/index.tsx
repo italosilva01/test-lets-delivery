@@ -6,6 +6,8 @@ import { api } from 'service/api';
 import { Character } from 'model/character';
 import { MediaCard } from '../MediaCard';
 import { Container } from './style';
+import { useSelector } from 'react-redux';
+import { RootState } from 'store';
 
 export const CharacterList = () => {
   const [firstTenCharacters, setFirstTenCharacters] = useState<Character[]>([]);
@@ -18,6 +20,7 @@ export const CharacterList = () => {
   useEffect(() => {
     getFirstTenCharacters();
   }, []);
+  const favorites = useSelector((state: RootState) => state.favorite);
 
   return (
     <>
@@ -35,6 +38,7 @@ export const CharacterList = () => {
               />
             </Grid>
           ))}
+          {favorites.length}
         </Grid>
       </Container>
     </>

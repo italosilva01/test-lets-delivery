@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import stockReducer from './Stock.store';
+import favoriteReducer from './Favorite.store';
 
 const store = configureStore({
   reducer: {
-    stock: stockReducer,
+    favorite: favoriteReducer,
   },
 });
 
