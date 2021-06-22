@@ -55,7 +55,7 @@ export const ListSearch = () => {
           <Tooltip title="Voltar" arrow>
             <IconButton
               onClick={() => {
-                history.push('/');
+                history.goBack();
               }}
             >
               <ArrowBackIcon />
