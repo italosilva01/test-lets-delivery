@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Brightness1Icon from '@material-ui/icons/Brightness1';
 import { Box } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -28,9 +29,16 @@ interface MediaCardProps {
   localtionName?: string;
   image: string;
   dimension?: string;
+  id: number;
 }
 
-export const MediaCard = ({ name, status, species, image }: MediaCardProps) => {
+export const MediaCard = ({
+  name,
+  status,
+  species,
+  image,
+  id,
+}: MediaCardProps) => {
   const classes = useStyles();
 
   return (
@@ -65,9 +73,7 @@ export const MediaCard = ({ name, status, species, image }: MediaCardProps) => {
         <Button size="small" color="primary">
           Share
         </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
+        <Link to={`character/${id}`}>View more</Link>
       </CardActions>
     </Card>
   );
