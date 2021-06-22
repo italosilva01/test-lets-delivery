@@ -19,7 +19,7 @@ export const CharacterListItem = ({ character }: CharacterListItemProps) => {
 
       <Info onClick={() => history.push(`character/${character.id}`)}>
         <Typography style={{ textAlign: 'justify' }}>
-          {character.name}
+          {character.name} - {character.origin?.name}
         </Typography>
       </Info>
       <ContainerAction>

@@ -58,7 +58,7 @@ export const OnlyCharacter = () => {
   return (
     <Container>
       <Content>
-        <Typography variant="h3">
+        <Typography variant="h3" style={{ marginBottom: '5%' }}>
           <Tooltip title="Voltar" arrow>
             <IconButton
               onClick={() => {
@@ -75,11 +75,19 @@ export const OnlyCharacter = () => {
         ) : (
           <Paper elevation={3} style={{ width: '80%', margin: '0 auto' }}>
             <PhotoContainer container spacing={1}>
-              <Grid item lg={6}>
+              <Grid item lg={6} style={{ padding: 0, paddingRight: 10 }}>
                 <Image src={character.image} alt={character.name} />
               </Grid>
 
-              <Grid item lg={4}>
+              <Grid
+                item
+                lg={4}
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                }}
+              >
                 <InfoCard
                   status={character.status}
                   species={character.species}

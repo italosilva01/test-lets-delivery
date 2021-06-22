@@ -16,7 +16,7 @@ export const Content = styled.main`
 
 export const PhotoContainer = styled(Grid)`
   /* background-color: red; */
-  margin-top: 5% !important;
+  /* margin-top: 5% !important; */
 `;
 
 export const Image = styled.img`
