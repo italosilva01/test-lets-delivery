@@ -15,10 +15,6 @@ export const Content = styled.main`
   span {
     text-align: center;
   }
-  ul {
-    margin-top: 5%;
-    padding: 0 20%;
-  }
 `;
 
 export const ContainerProgress = styled.div`
