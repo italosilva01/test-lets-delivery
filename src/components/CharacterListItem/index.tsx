@@ -1,29 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { Typography, Tooltip, IconButton } from '@material-ui/core';
+import React from 'react';
+import { Typography, Tooltip } from '@material-ui/core';
 import { Link, useHistory } from 'react-router-dom';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import { useSelector, useDispatch } from 'react-redux';
 
-import { RootState } from 'store';
-import { insert, remove } from 'store/Favorite.store';
 import { Container, Info, ContainerAction } from './style';
 import { Character } from 'model/character';
+import { FavoriteButton } from 'components/FavoriteButton';
 
 interface CharacterListItemProps {
   character: Character;
 }
 export const CharacterListItem = ({ character }: CharacterListItemProps) => {
-  const favorites = useSelector((state: RootState) => state.favorite);
-  const dispatch = useDispatch();
   const history = useHistory();
-  const [isFavorite, setIsFavorite] = useState(false);
-
-  useEffect(() => {
-    const exist = favorites.filter((item) => item.id === character.id);
-    exist.length > 0 ? setIsFavorite(true) : setIsFavorite(false);
-  }, [favorites]);
 
   return (
     <Container>
@@ -40,27 +28,7 @@ export const CharacterListItem = ({ character }: CharacterListItemProps) => {
             <ArrowForwardIcon />
           </Link>
         </Tooltip>
-        {!isFavorite ? (
-          <Tooltip title="Favorite" arrow>
-            <IconButton
-              onClick={() => {
-                dispatch(insert(character));
-              }}
-            >
-              <FavoriteBorderIcon />
-            </IconButton>
-          </Tooltip>
-        ) : (
-          <Tooltip title="Not favorite" arrow>
-            <IconButton
-              onClick={() => {
-                dispatch(remove(character));
-              }}
-            >
-              <FavoriteIcon />
-            </IconButton>
-          </Tooltip>
-        )}
+        <FavoriteButton character={character} />
       </ContainerAction>
     </Container>
   );
