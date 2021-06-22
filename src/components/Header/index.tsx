@@ -9,7 +9,6 @@ import {
   createStyles,
 } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
-import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -17,17 +16,17 @@ const useStyles = makeStyles((theme: Theme) =>
       margin: theme.spacing(1),
       borderColor: 'white',
       width: '90%',
-      '& focus-visible': {
-        borderColor: 'white',
-      },
     },
     input: {
       color: 'white',
       borderColor: 'white',
+      '& focus-visible': {
+        borderColor: 'white',
+      },
     },
   })
 );
-import { Container, Content, HomeOptions } from './style';
+import { Container, Content, HomeOptions, LinkFavorites } from './style';
 import { useHistory } from 'react-router-dom';
 
 export const Header = () => {
@@ -57,20 +56,20 @@ export const Header = () => {
           </Typography>
         </span>
         <HomeOptions>
-          <Link to="/favorites">Favorites</Link>
+          <LinkFavorites to="/favorites">Favorites</LinkFavorites>
           <form action="/search" onSubmit={(e) => handleSubmit(e)}>
             <TextField
               className={classes.textField}
-              label="Pesquisar"
+              label="Search"
               name="name"
-              placeholder="Pesquisar personagem"
+              placeholder="Search for character"
               value={searchCharacter}
               onChange={handleChange}
               inputProps={{
                 className: classes.input,
               }}
             />
-            <IconButton type="submit">
+            <IconButton type="submit" style={{ color: 'white' }}>
               <SearchIcon />
             </IconButton>
           </form>

@@ -6,8 +6,10 @@ import { CharacterList } from 'components/CharacterList';
 export const Home = () => {
   return (
     <>
-      <Header />
-      <CharacterList />
+      <div>
+        <Header />
+        <CharacterList />
+      </div>
     </>
   );
 };

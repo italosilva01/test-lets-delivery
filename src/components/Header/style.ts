@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Box } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.section`
   background: var(--background-black);
@@ -24,6 +25,15 @@ export const Content = styled.div`
 export const HomeOptions = styled(Box)`
   display: flex;
   flex-direction: column;
+`;
+
+export const LinkFavorites = styled(Link)`
+  color: var(--background-white) !important;
+  transition: filter 0.2s;
+
+  :hover {
+    filter: brightness(0.9);
+  }
 `;
 // export const TextFieldStyled = styled(TextField)`
 //   border-color: red;

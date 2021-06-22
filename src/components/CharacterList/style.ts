@@ -6,5 +6,13 @@ export const Container = styled.section`
   margin: 0 auto;
   padding-left: 1.25rem;
   width: 1120px;
-  height: 24rem;
+`;
+
+export const Content = styled.div`
+  width: 1120px;
+  margin: 0 auto;
+
+  span {
+    text-align: center;
+  }
 `;

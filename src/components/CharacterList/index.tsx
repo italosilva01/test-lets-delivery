@@ -5,7 +5,7 @@ import { Grid } from '@material-ui/core';
 import { api } from 'service/api';
 import { Character } from 'model/character';
 import { MediaCard } from '../MediaCard';
-import { Container } from './style';
+import { Container, Content } from './style';
 
 export const CharacterList = () => {
   const [firstTenCharacters, setFirstTenCharacters] = useState<Character[]>([]);
@@ -22,13 +22,15 @@ export const CharacterList = () => {
   return (
     <>
       <Container>
-        <Grid container spacing={2} style={{ margin: 'auto' }}>
-          {firstTenCharacters.map((character: Character) => (
-            <Grid key={character.id} item>
-              <MediaCard character={character} />
-            </Grid>
-          ))}
-        </Grid>
+        <Content>
+          <Grid container spacing={2} style={{ margin: 'auto' }}>
+            {firstTenCharacters.map((character: Character) => (
+              <Grid key={character.id} item>
+                <MediaCard character={character} />
+              </Grid>
+            ))}
+          </Grid>
+        </Content>
       </Container>
     </>
   );

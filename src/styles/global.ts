@@ -25,7 +25,16 @@ export const GlobalStyle = createGlobalStyle`
  h2,h3,h4,h5,h6{
     color: var(--text-title)
   }
-
+  .MuiFormLabel-root {
+    color:#f0f2f5 !important;
+  }
+  .MuiInput-underline:after{
+    border-bottom: 2px solid #f0f2f5 !important;
+  }
+  .MuiInput-underline
+,.MuiInput-underline:hover:not(.Mui-disabled):before{
+    border-bottom: 1px solid #f0f2f5;
+  }
 html{
     @media (max-width:1080px){
         font-size:93.75%;
