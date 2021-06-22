@@ -1,11 +1,3 @@
-<div align="center" id="top"> 
-  <img src="./.github/app.gif" alt="Test Lets Delivery" />
-
-&#xa0;
-
-  <!-- <a href="https://testletsdelivery.netlify.app">Demo</a> -->
-</div>
-
 <h1 align="center">Test Lets Delivery</h1>
 
 <p align="center">
@@ -46,7 +38,7 @@
 
 ## :dart: About
 
-Describe your project
+The project is a test run for startup Lets-delivery. It consists of a wikipedia about the characters from the Universe [Rick and Morty](https://pt.wikipedia.org/wiki/Rick_and_Morty)
 
 ## :sparkles: Features
 
