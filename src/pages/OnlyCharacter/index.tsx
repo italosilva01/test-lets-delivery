@@ -78,7 +78,7 @@ export const OnlyCharacter = () => {
               <ArrowBackIcon />
             </IconButton>
           </Tooltip>
-          {character.name} {favorite.length}
+          {character.name}
         </Typography>
         <Paper elevation={3} style={{ width: '80%', margin: '0 auto' }}>
           <PhotoContainer container spacing={1}>

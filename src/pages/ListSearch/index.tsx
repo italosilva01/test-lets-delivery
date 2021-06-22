@@ -73,11 +73,7 @@ export const ListSearch = () => {
         <List>
           {foundCharacters.map((character: Character) => (
             <ListItem key={character.id}>
-              <CharacterListItem
-                name={character.name}
-                image={character.image}
-                id={character.id}
-              />
+              <CharacterListItem character={character} />
             </ListItem>
           ))}
         </List>
