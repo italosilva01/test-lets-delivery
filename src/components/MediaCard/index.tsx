@@ -30,32 +30,31 @@ export const MediaCard = ({ character }: MediaCardProps) => {
 
   return (
     <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={`${character.image}`}
-          title={`${character.name}`}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h4" component="h2">
-            {character.name}
-          </Typography>
-          <Box style={{ display: 'flex' }}>
-            <Brightness1Icon
-              color={character.status == 'Alive' ? 'primary' : 'secondary'}
-              fontSize="small"
-            />
-            <Typography>
-              {'  '}
-              {character.status} - {character.species}
+      <Link to={`character/${character.id}`}>
+        <CardActionArea>
+          <CardMedia
+            className={classes.media}
+            image={`${character.image}`}
+            title={`${character.name}`}
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h4" component="h2">
+              {character.name}
             </Typography>
-          </Box>
+            <Box style={{ display: 'flex' }}>
+              <Brightness1Icon
+                color={character.status == 'Alive' ? 'primary' : 'secondary'}
+                fontSize="small"
+              />
+              <Typography>
+                {'  '}
+                {character.status} - {character.species}
+              </Typography>
+            </Box>
+          </CardContent>
+        </CardActionArea>
+      </Link>
 
-          {/* <Typography variant="h6">Last known location:</Typography>
-          {console.log(localtionName)}
-          <Typography>{localtionName}</Typography> */}
-        </CardContent>
-      </CardActionArea>
       <CardActions>
         <FavoriteButton character={character} />
         <Link to={`character/${character.id}`}>View more</Link>
