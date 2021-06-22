@@ -8,14 +8,10 @@ import {
   Paper,
 } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-// import { useDispatch, useSelector } from 'react-redux';
-// // import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-// // import FavoriteIcon from '@material-ui/icons/Favorite';
 
-// import { RootState } from 'store';
-// import { insert, remove } from 'store/Favorite.store';
 import { InfoCard } from 'components/InfoCard';
 import { FavoriteButton } from 'components/FavoriteButton';
+import { Progress } from 'components/Progress';
 import {
   Container,
   Content,
@@ -34,6 +30,7 @@ export const OnlyCharacter = () => {
   const history = useHistory();
 
   const [character, setCharacter] = useState<Character>({} as Character);
+  const [request, setRequest] = useState(false);
   const { id } = useParams<CharacterParams>();
 
   useEffect(() => {
@@ -55,6 +52,7 @@ export const OnlyCharacter = () => {
       }
     };
     getOnlyCharacter();
+    setRequest(true);
   }, []);
 
   return (
@@ -72,26 +70,30 @@ export const OnlyCharacter = () => {
           </Tooltip>
           {character.name}
         </Typography>
-        <Paper elevation={3} style={{ width: '80%', margin: '0 auto' }}>
-          <PhotoContainer container spacing={1}>
-            <Grid item lg={6}>
-              <Image src={character.image} alt={character.name} />
-            </Grid>
+        {!request ? (
+          <Progress />
+        ) : (
+          <Paper elevation={3} style={{ width: '80%', margin: '0 auto' }}>
+            <PhotoContainer container spacing={1}>
+              <Grid item lg={6}>
+                <Image src={character.image} alt={character.name} />
+              </Grid>
 
-            <Grid item lg={4}>
-              <InfoCard
-                status={character.status}
-                species={character.species}
-                gender={character.gender}
-                location={character.location}
-                origin={character.origin}
-              />
-              <ContainerAction>
-                <FavoriteButton character={character} />
-              </ContainerAction>
-            </Grid>
-          </PhotoContainer>
-        </Paper>
+              <Grid item lg={4}>
+                <InfoCard
+                  status={character.status}
+                  species={character.species}
+                  gender={character.gender}
+                  location={character.location}
+                  origin={character.origin}
+                />
+                <ContainerAction>
+                  <FavoriteButton character={character} />
+                </ContainerAction>
+              </Grid>
+            </PhotoContainer>
+          </Paper>
+        )}
       </Content>
     </Container>
   );
