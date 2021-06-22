@@ -24,16 +24,24 @@ export const Content = styled.div`
 
 export const HomeOptions = styled(Box)`
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const LinkFavorites = styled(Link)`
   color: var(--background-white) !important;
   transition: filter 0.2s;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   :hover {
     filter: brightness(0.9);
   }
+`;
+export const FormStyled = styled.form`
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
 `;
 // export const TextFieldStyled = styled(TextField)`
 //   border-color: red;

@@ -9,7 +9,7 @@ import {
   createStyles,
 } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
-
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     textField: {
@@ -26,7 +26,13 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   })
 );
-import { Container, Content, HomeOptions, LinkFavorites } from './style';
+import {
+  Container,
+  Content,
+  HomeOptions,
+  LinkFavorites,
+  FormStyled,
+} from './style';
 import { useHistory } from 'react-router-dom';
 
 export const Header = () => {
@@ -56,8 +62,7 @@ export const Header = () => {
           </Typography>
         </span>
         <HomeOptions>
-          <LinkFavorites to="/favorites">Favorites</LinkFavorites>
-          <form action="/search" onSubmit={(e) => handleSubmit(e)}>
+          <FormStyled action="/search" onSubmit={(e) => handleSubmit(e)}>
             <TextField
               className={classes.textField}
               label="Search"
@@ -72,7 +77,10 @@ export const Header = () => {
             <IconButton type="submit" style={{ color: 'white' }}>
               <SearchIcon />
             </IconButton>
-          </form>
+          </FormStyled>
+          <LinkFavorites to="/favorites">
+            Favorites <FavoriteBorderIcon />
+          </LinkFavorites>
         </HomeOptions>
       </Content>
     </Container>
