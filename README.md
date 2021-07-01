@@ -71,7 +71,7 @@ Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) an
 
 ```bash
 # Clone this project
-$ git clone https://github.com/italosilva01/test-lets-delivery
+$ git clone https://github.com/italosilva01/wiki-Rick-and-more
 
 # Access
 $ cd test-lets-delivery
