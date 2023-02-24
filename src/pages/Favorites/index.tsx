@@ -4,11 +4,11 @@ import { Typography, Tooltip, IconButton, Grid } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { useSelector } from 'react-redux';
 
-import { Container, Content } from './style';
 import { RootState } from 'store';
 import { Character } from 'model/character';
-import { MediaCard } from 'components/MediaCard';
-import { Empty } from 'components/Empty';
+import { Empty, MediaCard } from 'components';
+
+import { Container, Content } from './style';
 
 export const Favorites = () => {
   const history = useHistory();
@@ -29,7 +29,7 @@ export const Favorites = () => {
           </Tooltip>
           {'  '}
 
-          {favorite.length > 1 ? 'Favorites' : 'Favorite'}
+          {`Favorite${favorite.length > 1 ? 's' : ''}`}
         </Typography>
         {favorite.length == 0 && (
           <Empty
